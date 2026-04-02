@@ -28,7 +28,7 @@ function generateTrackingId() {
 
 // Schema
 const shipmentSchema = new mongoose.Schema({
-  trackingId: { type: String, required: true },
+  trackingId: String,
   origin: String,
   destination: String,
   delivery: String,
@@ -61,11 +61,14 @@ app.post("/shipments", async (req, res) => {
       location: ""
     });
 
+    console.log("Before save:", shipment);
+
     const savedShipment = await shipment.save();
 
     console.log("Saved shipment:", savedShipment);
 
     res.json(savedShipment);
+
   } catch (err) {
     console.error("FULL ERROR:", err);
     res.status(500).json({
@@ -74,7 +77,6 @@ app.post("/shipments", async (req, res) => {
     });
   }
 });
-
 // GET shipment by trackingId
 app.get("/shipments/:id", async (req, res) => {
   try {
