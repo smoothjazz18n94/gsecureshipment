@@ -9,6 +9,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 
+app.get("/", (req, res) => {
+res.send("API is running...");
+});
+
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Atlas Connected"))
   .catch(err => console.log(err));
@@ -90,6 +94,8 @@ app.put("/shipments/:id", async (req, res) => {
 });
 
 // Start server
-app.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+console.log("Server running on port " + PORT);
 });
