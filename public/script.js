@@ -1,7 +1,8 @@
 console.log("JS LOADED");
 
-// ================= ADMIN =================
 document.addEventListener("DOMContentLoaded", () => {
+
+  // ================= CREATE SHIPMENT =================
   const createBtn = document.getElementById("createShipmentBtn");
   const createResult = document.getElementById("createResult");
 
@@ -33,6 +34,42 @@ document.addEventListener("DOMContentLoaded", () => {
       } catch (err) {
         console.error(err);
         createResult.innerHTML = `<p style="color:red;">Error creating shipment</p>`;
+      }
+    });
+  }
+
+  // ================= UPDATE SHIPMENT =================
+  const updateBtn = document.getElementById("updateShipmentBtn");
+  const updateResult = document.getElementById("updateResult");
+
+  if (updateBtn) {
+    updateBtn.addEventListener("click", async () => {
+      const trackingId = document.getElementById("updateTrackingId").value.trim();
+      const status = document.getElementById("updateStatus").value.trim();
+      const location = document.getElementById("updateLocation").value.trim();
+      const event = document.getElementById("updateEvent").value.trim();
+
+      if (!trackingId) return alert("Enter Tracking ID");
+
+      try {
+        const res = await fetch(`/shipments/${trackingId}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ status, location, event })
+        });
+
+        const data = await res.json();
+        console.log("Updated shipment:", data);
+
+        updateResult.innerHTML = `
+          <p><b>Tracking ID:</b> ${data.trackingId}</p>
+          <p><b>Status:</b> ${data.status}</p>
+          <p><b>Location:</b> ${data.location || "-"}</p>
+          <p><b>Event:</b> ${data.event || "-"}</p>
+        `;
+      } catch (err) {
+        console.error(err);
+        updateResult.innerHTML = `<p style="color:red;">Error updating shipment</p>`;
       }
     });
   }
@@ -70,4 +107,5 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
 });
