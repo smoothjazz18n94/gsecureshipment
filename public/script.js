@@ -1,98 +1,73 @@
 console.log("JS LOADED");
 
+// ================= ADMIN =================
 document.addEventListener("DOMContentLoaded", () => {
+  const createBtn = document.getElementById("createShipmentBtn");
+  const createResult = document.getElementById("createResult");
 
-    // ---------------- Admin Create Shipment ----------------
-    const createBtn = document.getElementById("createShipmentBtn");
-    const createResult = document.getElementById("createResult");
+  if (createBtn) {
+    createBtn.addEventListener("click", async () => {
+      const data = {
+        origin: document.getElementById("origin").value,
+        destination: document.getElementById("destination").value,
+        delivery: document.getElementById("delivery").value,
+        cargo: document.getElementById("cargo").value,
+        weight: document.getElementById("weight").value,
+        value: document.getElementById("value").value
+      };
 
-    if (createBtn) {
-        createBtn.addEventListener("click", async () => {
-            const data = {
-                origin: document.getElementById("origin").value,
-                destination: document.getElementById("destination").value,
-                delivery: document.getElementById("delivery").value,
-                cargo: document.getElementById("cargo").value,
-                weight: document.getElementById("weight").value,
-                value: document.getElementById("value").value
-            };
-
-            try {
-                const res = await fetch("/shipments", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(data)
-                });
-
-                const result = await res.json();
-                createResult.innerHTML = `<strong>Created!</strong> Tracking ID: ${result.trackingId}`;
-            } catch (err) {
-                console.error(err);
-                createResult.innerHTML = `<span style="color:red;">Error creating shipment</span>`;
-            }
+      try {
+        const res = await fetch("/shipments", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
         });
-    }
 
-    // ---------------- Admin Update Shipment ----------------
-    const updateBtn = document.getElementById("updateShipmentBtn");
-    const updateResult = document.getElementById("updateResult");
+        const shipment = await res.json();
+        console.log("Server result:", shipment);
 
-    if (updateBtn) {
-        updateBtn.addEventListener("click", async () => {
-            const id = document.getElementById("trackId").value;
-            const data = {
-                status: document.getElementById("status").value,
-                event: document.getElementById("event").value,
-                location: document.getElementById("location").value
-            };
+        createResult.innerHTML = `
+          <p><b>Tracking ID:</b> ${shipment.trackingId}</p>
+          <p><b>Status:</b> ${shipment.status}</p>
+        `;
+      } catch (err) {
+        console.error(err);
+        createResult.innerHTML = `<p style="color:red;">Error creating shipment</p>`;
+      }
+    });
+  }
 
-            try {
-                const res = await fetch(`/shipments/${id}`, {
-                    method: "PUT",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(data)
-                });
+  // ================= USER TRACKING =================
+  const trackBtn = document.getElementById("trackButton");
+  if (trackBtn) {
+    trackBtn.addEventListener("click", async () => {
+      const id = document.getElementById("trackingInput").value.trim();
+      const box = document.getElementById("trackingResult");
 
-                const result = await res.json();
-                updateResult.innerHTML = `<strong>Updated!</strong> Tracking ID: ${result.trackingId}`;
-            } catch (err) {
-                console.error(err);
-                updateResult.innerHTML = `<span style="color:red;">Update failed</span>`;
-            }
-        });
-    }
+      if (!id) return;
 
-    // ---------------- User Tracking ----------------
-    const trackBtn = document.getElementById("trackButton");
-    const trackingBox = document.getElementById("trackingResult");
+      try {
+        const res = await fetch(`/shipments/${id}`);
+        if (!res.ok) throw new Error("Not found");
 
-    if (trackBtn) {
-        trackBtn.addEventListener("click", async () => {
-            const id = document.getElementById("trackingInput").value.trim();
-            trackingBox.innerHTML = "";
-            if (!id) return trackingBox.innerHTML = "<p style='color:red;'>Enter a tracking ID</p>";
+        const data = await res.json();
 
-            try {
-                const res = await fetch(`/shipments/${id}`);
-                if (!res.ok) throw new Error("Not found");
-                const data = await res.json();
-
-                trackingBox.innerHTML = `
-                    <div class="shipment-card">
-                        <h2>Shipment Details</h2>
-                        <div class="shipment-row"><div>Tracking ID:</div><div>${data.trackingId}</div></div>
-                        <div class="shipment-row"><div>Status:</div><div>${data.status}</div></div>
-                        <div class="shipment-row"><div>Origin:</div><div>${data.origin}</div></div>
-                        <div class="shipment-row"><div>Destination:</div><div>${data.destination}</div></div>
-                        <div class="shipment-row"><div>Delivery:</div><div>${data.delivery}</div></div>
-                        <div class="shipment-row"><div>Event:</div><div>${data.event || "-"}</div></div>
-                        <div class="shipment-row"><div>Location:</div><div>${data.location || "-"}</div></div>
-                    </div>
-                `;
-            } catch {
-                trackingBox.innerHTML = "<p style='color:red;'>Shipment not found</p>";
-            }
-        });
-    }
-
+        box.innerHTML = `
+          <div class="tracking-card">
+            <h3>Shipment Details</h3>
+            <p><b>Tracking ID:</b> ${data.trackingId}</p>
+            <p><b>Status:</b> ${data.status}</p>
+            <p><b>Origin:</b> ${data.origin}</p>
+            <p><b>Destination:</b> ${data.destination}</p>
+            <p><b>Delivery:</b> ${data.delivery}</p>
+            <p><b>Event:</b> ${data.event || "-"}</p>
+            <p><b>Location:</b> ${data.location || "-"}</p>
+          </div>
+        `;
+      } catch (err) {
+        console.error(err);
+        box.innerHTML = `<p style="color:red;">Shipment not found</p>`;
+      }
+    });
+  }
 });

@@ -45,23 +45,33 @@ const Shipment = mongoose.model("Shipment", shipmentSchema);
 // CREATE shipment
 app.post("/shipments", async (req, res) => {
   try {
+    const newId = generateTrackingId();
+    console.log("Generated ID:", newId);
+
     const shipment = new Shipment({
-      trackingId: generateTrackingId(),
+      trackingId: newId,
       origin: req.body.origin || "",
       destination: req.body.destination || "",
       delivery: req.body.delivery || "",
       cargo: req.body.cargo || "",
       weight: req.body.weight || "",
       value: req.body.value || "",
-      status: "Processing"
+      status: "Processing",
+      event: "",
+      location: ""
     });
 
     const savedShipment = await shipment.save();
-    console.log("Created shipment:", savedShipment);
+
+    console.log("Saved shipment:", savedShipment);
+
     res.json(savedShipment);
   } catch (err) {
-    console.error("Error creating shipment:", err);
-    res.status(500).json({ message: "Server error", error: err.message });
+    console.error("FULL ERROR:", err);
+    res.status(500).json({
+      message: "Server error",
+      error: err.message
+    });
   }
 });
 
