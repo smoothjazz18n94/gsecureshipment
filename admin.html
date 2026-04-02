@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | GlobalSecure Logistics</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { font-family: Arial, sans-serif; background:#f4f4f4; padding:20px; }
+        h2 { margin-top:20px; }
+        input { display:block; margin:10px 0; padding:8px; width:300px; }
+        button { padding:10px 20px; margin:10px 0; cursor:pointer; }
+        .result-box { margin-top:10px; padding:10px; background:#fff; border:1px solid #ccc; width:fit-content; }
+    </style>
+</head>
+<body>
+    <h1>Admin Panel</h1>
+
+    <section>
+        <h2>Create Shipment</h2>
+        <input id="origin" placeholder="Origin">
+        <input id="destination" placeholder="Destination">
+        <input id="delivery" placeholder="Delivery">
+        <input id="cargo" placeholder="Cargo">
+        <input id="weight" placeholder="Weight">
+        <input id="value" placeholder="Value">
+        <button id="createShipmentBtn">Create Shipment</button>
+        <div id="createResult" class="result-box"></div>
+    </section>
+
+    <section>
+        <h2>Update Shipment</h2>
+        <input id="trackId" placeholder="Tracking ID">
+        <input id="status" placeholder="Status">
+        <input id="event" placeholder="Event">
+        <input id="location" placeholder="Location">
+        <button id="updateShipmentBtn">Update Shipment</button>
+        <div id="updateResult" class="result-box"></div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlobalSecure Logistics | Premium International Shipping</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>GlobalSecure</span>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#tracking">Tracking</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <a href="#contact" class="cta-button">Get Quote</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Secure Global Logistics for Your Most Valuable Shipments</h1>
+            <p>Premium international shipping with real-time tracking, insurance, and white-glove service for high-value cargo, electronics, and sensitive materials.</p>
+            
+            <div class="hero-buttons">
+                <a href="#tracking" class="cta-button">Track Shipment</a>
+                <a href="#contact" class="secondary-button">Request Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tracking Widget -->
+    <div class="container">
+        <div class="tracking-widget" id="tracking">
+            <h2>Track Your Shipment</h2>
+            <div class="tracking-input-group">
+                <input type="text" class="tracking-input" id="trackingInput" placeholder="Enter tracking number (e.g., GS-2024-001234)">
+                <button class="cta-button" id="trackButton">Track</button>
+            </div>
+
+            <div class="tracking-container" id="trackingResult">
+                <div class="tracking-header">
+                    <h3>Enter a tracking number above to view shipment details</h3>
+                </div>
+                <div class="tracking-body">
+                    <p style="text-align: center; color: var(--medium-gray);"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Premium Services</h2>
+                <p>Comprehensive logistics solutions tailored for high-value and time-sensitive shipments</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Air Freight</h3>
+                    <p>Express air shipping with priority handling, temperature control, and real-time monitoring for urgent shipments.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3>Ocean Freight</h3>
+                    <p>Secure container shipping with customs clearance, insurance, and specialized handling for bulk cargo.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Ground Transport</h3>
+                    <p>Door-to-door delivery with GPS tracking, armed security options, and chain-of-custody documentation.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>High-Value Cargo</h3>
+                    <p>Specialized handling for precious metals, electronics, pharmaceuticals, and other sensitive materials.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Customs Clearance</h3>
+                    <p>Expert assistance with documentation, duties, and regulatory compliance for international shipments.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Insurance & Security</h3>
+                    <p>Comprehensive insurance coverage and security protocols to protect your valuable shipments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About GlobalSecure Logistics</h2>
+                <p>Trusted by Fortune 500 companies for secure, reliable international shipping</p>
+            </div>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 50px;">
+                    <div>
+                        <h3 style="margin-bottom: 15px;">Our Mission</h3>
+                        <p>To provide secure, reliable, and efficient logistics solutions for high-value shipments worldwide, combining cutting-edge technology with decades of industry expertise.</p>
+                    </div>
+                    <div>
+                        <h3 style="margin-bottom: 15px;">Global Network</h3>
+                        <p>With offices in 12 countries and partnerships in over 50, we offer seamless end-to-end logistics solutions across all major trade routes.</p>
+                    </div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 30px; text-align: center;">
+                    <div>
+                        <h3 style="font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 10px;">98.7%</h3>
+                        <p>On-time Delivery Rate</p>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 10px;">24/7</h3>
+                        <p>Customer Support</p>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 10px;">$2B+</h3>
+                        <p>Cargo Value Insured</p>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 10px;">150+</h3>
+                        <p>Countries Served</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact" style="background-color: var(--light-gray);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch for a custom quote or to learn more about our services</p>
+            </div>
+            
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Company (Optional)</label>
+                        <input type="text" id="company" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">How can we help you?</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>GlobalSecure Logistics</h4>
+                    <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 20px;">Premium international shipping and logistics for high-value cargo.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#tracking">Tracking</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Air Freight</a></li>
+                        <li><a href="#">Ocean Freight</a></li>
+                        <li><a href="#">Ground Transport</a></li>
+                        <li><a href="#">Customs Clearance</a></li>
+                        <li><a href="#">Cargo Insurance</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <ul style="color: rgba(255, 255, 255, 0.8);">
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 123 Logistics Plaza, New York, NY 10001</li>
+                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> info@globalsecurelogistics.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 GlobalSecure Logistics. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+<script src="script.js"></script>
+</body>
+</html>
