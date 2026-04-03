@@ -83,3 +83,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// ===== SCROLL ANIMATION =====
+const faders = document.querySelectorAll(".fade-in");
+
+const appearOnScroll = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+faders.forEach(el => {
+  appearOnScroll.observe(el);
+});
