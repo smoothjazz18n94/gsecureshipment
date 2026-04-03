@@ -1,3 +1,9 @@
+// Check if admin is logged in
+if(localStorage.getItem("isAdmin") !== "true") {
+  window.location.href = "login.html"; // redirect to login if not
+}
+
+
 console.log("JS LOADED");
 
 // ================= ADMIN =================
@@ -36,6 +42,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+
+  document.getElementById("logoutBtn").addEventListener("click", () => {
+  localStorage.removeItem("isAdmin");
+  window.location.href = "login.html";
+});
 
   // ================= USER TRACKING =================
   const trackBtn = document.getElementById("trackButton");
