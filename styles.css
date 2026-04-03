@@ -872,6 +872,42 @@
   color: #1a73e8;
 }
 
+
+
+
+
+
+.quote-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.quote-section form {
+  max-width: 500px;
+  margin: auto;
+}
+
+.quote-section input,
+.quote-section textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.quote-section button {
+  background: #1a73e8;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
+
+
         /* Responsive Design */
         @media (max-width: 992px) {
             .hero h1 {
