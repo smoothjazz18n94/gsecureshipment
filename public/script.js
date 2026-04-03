@@ -87,6 +87,16 @@ const getStatusColor = (status) => {
 };
 
 
+const getStepIndex = (status) => {
+  switch (status.toLowerCase()) {
+    case "processing": return 0;
+    case "in transit": return 1;
+    case "out for delivery": return 2;
+    case "delivered": return 3;
+    default: return 0;
+  }
+};
+
 
   // ================= USER TRACKING =================
   const trackBtn = document.getElementById("trackButton");
@@ -102,7 +112,9 @@ const getStatusColor = (status) => {
         if (!res.ok) throw new Error("Not found");
 
         const data = await res.json();
- box.innerHTML = `
+ const stepIndex = getStepIndex(data.status);
+
+box.innerHTML = `
   <div class="tracking-card">
     <h3>Shipment Details</h3>
 
@@ -120,6 +132,16 @@ const getStatusColor = (status) => {
       </span>
     </p>
 
+    <!-- TIMELINE -->
+    <div class="timeline">
+      ${["Processing","In Transit","Out for Delivery","Delivered"].map((step, index) => `
+        <div class="step ${index <= stepIndex ? "active" : ""}">
+          <div class="circle">${index < stepIndex ? "✔" : ""}</div>
+          <p>${step}</p>
+        </div>
+      `).join("")}
+    </div>
+
     <hr>
 
     <p><b>Origin:</b> ${data.origin}</p>
@@ -133,7 +155,7 @@ const getStatusColor = (status) => {
     <p><b>Location:</b> ${data.location || data.origin}</p>
   </div>
 `;
-      } catch (err) {
+} catch (err) {
         console.error(err);
         box.innerHTML = `<p style="color:red;">Shipment not found</p>`;
       }

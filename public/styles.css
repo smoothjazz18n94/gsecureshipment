@@ -647,6 +647,50 @@
 }
 
 
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #ddd;
+  z-index: 0;
+}
+
+.step {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  width: 25%;
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ccc;
+  margin: 0 auto;
+  line-height: 30px;
+  color: white;
+  font-size: 14px;
+}
+
+.step.active .circle {
+  background: #1a73e8;
+}
+
+.step p {
+  font-size: 12px;
+  margin-top: 8px;
+}
 
 
 
