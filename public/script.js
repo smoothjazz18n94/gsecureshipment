@@ -74,6 +74,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+
+
+const getStatusColor = (status) => {
+  switch (status.toLowerCase()) {
+    case "processing": return "#f39c12"; // orange
+    case "in transit": return "#3498db"; // blue
+    case "out for delivery": return "#9b59b6"; // purple
+    case "delivered": return "#2ecc71"; // green
+    default: return "#555";
+  }
+};
+
+
+
   // ================= USER TRACKING =================
   const trackBtn = document.getElementById("trackButton");
   if (trackBtn) {
@@ -88,19 +102,37 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!res.ok) throw new Error("Not found");
 
         const data = await res.json();
+ box.innerHTML = `
+  <div class="tracking-card">
+    <h3>Shipment Details</h3>
 
-        box.innerHTML = `
-          <div class="tracking-card">
-            <h3>Shipment Details</h3>
-            <p><b>Tracking ID:</b> ${data.trackingId}</p>
-            <p><b>Status:</b> ${data.status}</p>
-            <p><b>Origin:</b> ${data.origin}</p>
-            <p><b>Destination:</b> ${data.destination}</p>
-            <p><b>Delivery:</b> ${data.delivery}</p>
-            <p><b>Event:</b> ${data.event || "-"}</p>
-            <p><b>Location:</b> ${data.location || "-"}</p>
-          </div>
-        `;
+    <p><b>Tracking ID:</b> ${data.trackingId}</p>
+
+    <p>
+      <b>Status:</b> 
+      <span style="
+        padding:5px 10px;
+        border-radius:5px;
+        color:white;
+        background:${getStatusColor(data.status)};
+      ">
+        ${data.status}
+      </span>
+    </p>
+
+    <hr>
+
+    <p><b>Origin:</b> ${data.origin}</p>
+    <p><b>Destination:</b> ${data.destination}</p>
+    <p><b>Delivery Date:</b> ${data.delivery}</p>
+
+    <hr>
+
+    <h4>Latest Update</h4>
+    <p><b>Event:</b> ${data.event || "Shipment information received"}</p>
+    <p><b>Location:</b> ${data.location || data.origin}</p>
+  </div>
+`;
       } catch (err) {
         console.error(err);
         box.innerHTML = `<p style="color:red;">Shipment not found</p>`;
