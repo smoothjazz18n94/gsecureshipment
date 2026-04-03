@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ground Freight</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="service-page">
+  <h1>Ground Freight</h1>
+  <img src="images/truck.jpg">
+
+  <p>
+    Our ground freight services provide reliable transportation for heavy,
+    oversized, and long-distance cargo across regions.
+  </p>
+
+  <ul>
+    <li>Transportation of oil equipment</li>
+    <li>Out-of-gauge cargo handling</li>
+    <li>Door-to-door delivery services</li>
+  </ul>
+
+  <a href="index.html" class="back-btn">← Back to Home</a>
+</section>
+<section class="quote-section">
+  <h2>Request a Quote</h2>
+
+  <form id="quoteForm">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <input type="text" id="cargo" placeholder="Cargo Type">
+    <input type="text" id="weight" placeholder="Weight">
+    <textarea id="message" placeholder="Additional Details"></textarea>
+
+    <button type="submit">Send Request</button>
+  </form>
+
+  <p id="quoteResult"></p>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+  emailjs.init("Cgew6Dfi7-S9bFwSc");
+})();
+
+document.getElementById("quoteForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const result = document.getElementById("quoteResult");
+
+  const params = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    cargo: document.getElementById("cargo").value,
+    weight: document.getElementById("weight").value,
+    message: document.getElementById("message").value
+  };
+
+  try {
+    await emailjs.send("service_8yod6gi", "YOUR_TEMPLATE_ID", params);
+
+    result.style.color = "green";
+    result.innerText = "Quote request sent successfully!";
+    document.getElementById("quoteForm").reset();
+  } catch (err) {
+    console.error(err);
+    result.style.color = "red";
+    result.innerText = "Failed to send request";
+  }
+});
+</script>
+</body>
+</html>
