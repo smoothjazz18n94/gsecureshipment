@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section style="max-width:400px;margin:100px auto;">
+  <h2>Admin Login</h2>
+
+  <input id="username" placeholder="Username">
+  <input id="password" type="password" placeholder="Password">
+
+  <button id="loginBtn">Login</button>
+
+  <p id="loginError" style="color:red;"></p>
+</section>
+
+<script>
+document.getElementById("loginBtn").addEventListener("click", () => {
+  const user = document.getElementById("username").value;
+  const pass = document.getElementById("password").value;
+
+  // SIMPLE AUTH (we improve later)
+  if (user === "admin" && pass === "1234") {
+    localStorage.setItem("isAdmin", "true");
+    window.location.href = "admin.html";
+  } else {
+    document.getElementById("loginError").innerText = "Invalid login";
+  }
+});
+</script>
+
+</body>
+</html>
