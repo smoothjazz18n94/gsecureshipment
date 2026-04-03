@@ -98,3 +98,51 @@ const appearOnScroll = new IntersectionObserver((entries) => {
 faders.forEach(el => {
   appearOnScroll.observe(el);
 });
+
+
+// ===== SLIDER =====
+const slides = document.querySelectorAll(".slide");
+const prev = document.querySelector(".prev");
+const next = document.querySelector(".next");
+const dotsContainer = document.querySelector(".dots");
+
+let current = 0;
+let interval;
+
+// CREATE DOTS
+slides.forEach((_, i) => {
+  const dot = document.createElement("span");
+  dot.addEventListener("click", () => showSlide(i));
+  dotsContainer.appendChild(dot);
+});
+
+const dots = document.querySelectorAll(".dots span");
+
+function showSlide(index) {
+  slides.forEach(s => s.classList.remove("active"));
+  dots.forEach(d => d.classList.remove("active-dot"));
+
+  slides[index].classList.add("active");
+  dots[index].classList.add("active-dot");
+
+  current = index;
+}
+
+// NEXT / PREV
+next.addEventListener("click", () => {
+  showSlide((current + 1) % slides.length);
+});
+
+prev.addEventListener("click", () => {
+  showSlide((current - 1 + slides.length) % slides.length);
+});
+
+// AUTO SLIDE
+function startSlider() {
+  interval = setInterval(() => {
+    showSlide((current + 1) % slides.length);
+  }, 5000);
+}
+
+startSlider();
+showSlide(0);

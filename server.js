@@ -111,3 +111,15 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
 console.log("Server running on port " + PORT);
 });
+
+// Simple secure admin login
+app.post("/admin/login", (req, res) => {
+  const { username, password } = req.body;
+
+  // Credentials stored in .env
+  if (username === process.env.ADMIN_USER && password === process.env.ADMIN_PASS) {
+    return res.json({ success: true, message: "Login successful" });
+  }
+
+  return res.status(401).json({ success: false, message: "Invalid credentials" });
+});

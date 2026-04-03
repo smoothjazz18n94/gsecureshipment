@@ -6,26 +6,49 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="login-container">
+  <section class="login-section">
     <h2>Admin Login</h2>
     <input type="text" id="username" placeholder="Username">
     <input type="password" id="password" placeholder="Password">
     <button id="loginBtn">Login</button>
-    <p id="loginMessage" style="color:red;"></p>
-  </div>
+    <div id="loginResult"></div>
+  </section>
 
   <script>
-    document.getElementById("loginBtn").addEventListener("click", () => {
-      const user = document.getElementById("username").value.trim();
-      const pass = document.getElementById("password").value.trim();
-      const msg = document.getElementById("loginMessage");
+    document.getElementById("loginBtn").addEventListener("click", async () => {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const result = document.getElementById("loginResult");
 
-      // Simple credentials check (change these to your own)
-      if(user === "admin" && pass === "Forevergrind") {
-        localStorage.setItem("isAdmin", "true");
-        window.location.href = "admin.html"; // redirect to admin panel
-      } else {
-        msg.textContent = "Invalid username or password";
+      if (!username || !password) {
+        result.textContent = "Enter both username and password";
+        result.style.color = "red";
+        return;
+      }
+
+      try {
+        const res = await fetch("/admin/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password })
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+          result.style.color = "green";
+          result.textContent = data.message;
+
+          // Redirect to admin.html after login
+          setTimeout(() => window.location.href = "/admin.html", 500);
+        } else {
+          result.style.color = "red";
+          result.textContent = data.message;
+        }
+      } catch (err) {
+        result.style.color = "red";
+        result.textContent = "Server error";
+        console.error(err);
       }
     });
   </script>
