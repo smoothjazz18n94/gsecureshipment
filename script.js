@@ -1,7 +1,4 @@
-// Check if admin is logged in
-if(localStorage.getItem("isAdmin") !== "true") {
-  window.location.href = "login.html"; // redirect to login if not
-}
+
 
 
 console.log("JS LOADED");
@@ -146,3 +143,11 @@ function startSlider() {
 
 startSlider();
 showSlide(0);
+
+// MOBILE MENU
+const menuBtn = document.getElementById("mobileMenuBtn");
+const navMenu = document.getElementById("navMenu");
+
+menuBtn.addEventListener("click", () => {
+  navMenu.classList.toggle("show");
+});

@@ -1,8 +1,10 @@
+
+
+
 console.log("JS LOADED");
 
+// ================= ADMIN =================
 document.addEventListener("DOMContentLoaded", () => {
-
-  // ================= CREATE SHIPMENT =================
   const createBtn = document.getElementById("createShipmentBtn");
   const createResult = document.getElementById("createResult");
 
@@ -38,65 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ================= UPDATE SHIPMENT =================
-  const updateBtn = document.getElementById("updateShipmentBtn");
-  const updateResult = document.getElementById("updateResult");
 
-  if (updateBtn) {
-    updateBtn.addEventListener("click", async () => {
-      const trackingId = document.getElementById("updateTrackingId").value.trim();
-      const status = document.getElementById("updateStatus").value.trim();
-      const location = document.getElementById("updateLocation").value.trim();
-      const event = document.getElementById("updateEvent").value.trim();
-
-      if (!trackingId) return alert("Enter Tracking ID");
-
-      try {
-        const res = await fetch(`/shipments/${trackingId}`, {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ status, location, event })
-        });
-
-        const data = await res.json();
-        console.log("Updated shipment:", data);
-
-        updateResult.innerHTML = `
-          <p><b>Tracking ID:</b> ${data.trackingId}</p>
-          <p><b>Status:</b> ${data.status}</p>
-          <p><b>Location:</b> ${data.location || "-"}</p>
-          <p><b>Event:</b> ${data.event || "-"}</p>
-        `;
-      } catch (err) {
-        console.error(err);
-        updateResult.innerHTML = `<p style="color:red;">Error updating shipment</p>`;
-      }
-    });
-  }
-
-
-
-const getStatusColor = (status) => {
-  switch (status.toLowerCase()) {
-    case "processing": return "#f39c12"; // orange
-    case "in transit": return "#3498db"; // blue
-    case "out for delivery": return "#9b59b6"; // purple
-    case "delivered": return "#2ecc71"; // green
-    default: return "#555";
-  }
-};
-
-
-const getStepIndex = (status) => {
-  switch (status.toLowerCase()) {
-    case "processing": return 0;
-    case "in transit": return 1;
-    case "out for delivery": return 2;
-    case "delivered": return 3;
-    default: return 0;
-  }
-};
-
+  document.getElementById("logoutBtn").addEventListener("click", () => {
+  localStorage.removeItem("isAdmin");
+  window.location.href = "login.html";
+});
 
   // ================= USER TRACKING =================
   const trackBtn = document.getElementById("trackButton");
@@ -112,54 +60,94 @@ const getStepIndex = (status) => {
         if (!res.ok) throw new Error("Not found");
 
         const data = await res.json();
- const stepIndex = getStepIndex(data.status);
 
-box.innerHTML = `
-  <div class="tracking-card">
-    <h3>Shipment Details</h3>
-
-    <p><b>Tracking ID:</b> ${data.trackingId}</p>
-
-    <p>
-      <b>Status:</b> 
-      <span style="
-        padding:5px 10px;
-        border-radius:5px;
-        color:white;
-        background:${getStatusColor(data.status)};
-      ">
-        ${data.status}
-      </span>
-    </p>
-
-    <!-- TIMELINE -->
-    <div class="timeline">
-      ${["Processing","In Transit","Out for Delivery","Delivered"].map((step, index) => `
-        <div class="step ${index <= stepIndex ? "active" : ""}">
-          <div class="circle">${index < stepIndex ? "✔" : ""}</div>
-          <p>${step}</p>
-        </div>
-      `).join("")}
-    </div>
-
-    <hr>
-
-    <p><b>Origin:</b> ${data.origin}</p>
-    <p><b>Destination:</b> ${data.destination}</p>
-    <p><b>Delivery Date:</b> ${data.delivery}</p>
-
-    <hr>
-
-    <h4>Latest Update</h4>
-    <p><b>Event:</b> ${data.event || "Shipment information received"}</p>
-    <p><b>Location:</b> ${data.location || data.origin}</p>
-  </div>
-`;
-} catch (err) {
+        box.innerHTML = `
+          <div class="tracking-card">
+            <h3>Shipment Details</h3>
+            <p><b>Tracking ID:</b> ${data.trackingId}</p>
+            <p><b>Status:</b> ${data.status}</p>
+            <p><b>Origin:</b> ${data.origin}</p>
+            <p><b>Destination:</b> ${data.destination}</p>
+            <p><b>Delivery:</b> ${data.delivery}</p>
+            <p><b>Event:</b> ${data.event || "-"}</p>
+            <p><b>Location:</b> ${data.location || "-"}</p>
+          </div>
+        `;
+      } catch (err) {
         console.error(err);
         box.innerHTML = `<p style="color:red;">Shipment not found</p>`;
       }
     });
   }
+});
 
+// ===== SCROLL ANIMATION =====
+const faders = document.querySelectorAll(".fade-in");
+
+const appearOnScroll = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+faders.forEach(el => {
+  appearOnScroll.observe(el);
+});
+
+
+// ===== SLIDER =====
+const slides = document.querySelectorAll(".slide");
+const prev = document.querySelector(".prev");
+const next = document.querySelector(".next");
+const dotsContainer = document.querySelector(".dots");
+
+let current = 0;
+let interval;
+
+// CREATE DOTS
+slides.forEach((_, i) => {
+  const dot = document.createElement("span");
+  dot.addEventListener("click", () => showSlide(i));
+  dotsContainer.appendChild(dot);
+});
+
+const dots = document.querySelectorAll(".dots span");
+
+function showSlide(index) {
+  slides.forEach(s => s.classList.remove("active"));
+  dots.forEach(d => d.classList.remove("active-dot"));
+
+  slides[index].classList.add("active");
+  dots[index].classList.add("active-dot");
+
+  current = index;
+}
+
+// NEXT / PREV
+next.addEventListener("click", () => {
+  showSlide((current + 1) % slides.length);
+});
+
+prev.addEventListener("click", () => {
+  showSlide((current - 1 + slides.length) % slides.length);
+});
+
+// AUTO SLIDE
+function startSlider() {
+  interval = setInterval(() => {
+    showSlide((current + 1) % slides.length);
+  }, 5000);
+}
+
+startSlider();
+showSlide(0);
+
+// MOBILE MENU
+const menuBtn = document.getElementById("mobileMenuBtn");
+const navMenu = document.getElementById("navMenu");
+
+menuBtn.addEventListener("click", () => {
+  navMenu.classList.toggle("show");
 });
