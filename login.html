@@ -2,16 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Admin Login</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | GlobalSecure Logistics</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
   <section class="login-section">
-    <h2>Admin Login</h2>
-    <input type="text" id="username" placeholder="Username">
-    <input type="password" id="password" placeholder="Password">
-    <button id="loginBtn">Login</button>
+    <div style="text-align:center;margin-bottom:40px">
+      <a href="index.html" style="display:inline-flex;align-items:center;gap:10px;font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:#fff;text-decoration:none;margin-bottom:28px">
+        <i class="fas fa-shield-alt" style="color:var(--cyan)"></i>
+        GlobalSecure
+      </a>
+      <h2>Admin Login</h2>
+      <p style="color:var(--slate);font-size:0.9rem;margin-top:8px">Secure access for authorized personnel only</p>
+    </div>
+
+    <input type="text" id="username" placeholder="Username" autocomplete="username">
+    <input type="password" id="password" placeholder="Password" autocomplete="current-password">
+    <button id="loginBtn">
+      <i class="fas fa-lock" style="margin-right:8px"></i>Login
+    </button>
     <div id="loginResult"></div>
+
+    <a href="index.html" style="margin-top:24px;color:var(--slate);font-size:0.85rem;display:inline-block;transition:color 0.2s" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--slate)'">
+      ← Back to Website
+    </a>
   </section>
 
   <script>
@@ -22,7 +40,7 @@
 
       if (!username || !password) {
         result.textContent = "Enter both username and password";
-        result.style.color = "red";
+        result.style.color = "var(--error)";
         return;
       }
 
@@ -36,17 +54,15 @@
         const data = await res.json();
 
         if (data.success) {
-          result.style.color = "green";
+          result.style.color = "var(--success)";
           result.textContent = data.message;
-
-          // Redirect to admin.html after login
           setTimeout(() => window.location.href = "/admin.html", 500);
         } else {
-          result.style.color = "red";
+          result.style.color = "var(--error)";
           result.textContent = data.message;
         }
       } catch (err) {
-        result.style.color = "red";
+        result.style.color = "var(--error)";
         result.textContent = "Server error";
         console.error(err);
       }

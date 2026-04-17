@@ -1,45 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel | GlobalSecure Logistics</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body { font-family: Arial, sans-serif; background:#f4f4f4; padding:20px; }
-        h2 { margin-top:20px; }
-        input { display:block; margin:10px 0; padding:8px; width:300px; }
-        button { padding:10px 20px; margin:10px 0; cursor:pointer; }
-        .result-box { margin-top:10px; padding:10px; background:#fff; border:1px solid #ccc; width:fit-content; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel | GlobalSecure Logistics</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <h1>Admin Panel</h1>
+<body class="admin-body">
 
-    <section>
-        <h2>Create Shipment</h2>
-        <input id="origin" placeholder="Origin">
-        <input id="destination" placeholder="Destination">
-        <input id="delivery" placeholder="Delivery">
-        <input id="cargo" placeholder="Cargo">
-        <input id="weight" placeholder="Weight">
-        <input id="value" placeholder="Value">
-        <button id="createShipmentBtn">Create Shipment</button>
-        <div id="createResult" class="result-box"></div>
-    </section>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:40px;padding-bottom:20px;border-bottom:1px solid var(--border)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <i class="fas fa-shield-alt" style="color:var(--cyan);font-size:1.4rem"></i>
+      <h1 style="margin:0;border:none;padding:0;font-size:1.6rem">Admin Panel</h1>
+    </div>
+    <button id="logoutBtn">
+      <i class="fas fa-sign-out-alt" style="margin-right:6px"></i>Logout
+    </button>
+  </div>
 
-    <section>
-        <h2>Update Shipment</h2>
-        <input id="trackId" placeholder="Tracking ID">
-        <input id="status" placeholder="Status">
-        <input id="event" placeholder="Event">
-        <input id="location" placeholder="Location">
-        <button id="updateShipmentBtn">Update Shipment</button>
-        <div id="updateResult" class="result-box"></div>
-    </section>
+  <section>
+    <h2><i class="fas fa-plus-circle" style="margin-right:8px;font-size:0.9rem"></i>Create Shipment</h2>
+    <input id="origin" placeholder="Origin">
+    <input id="destination" placeholder="Destination">
+    <input id="delivery" placeholder="Delivery Date">
+    <input id="cargo" placeholder="Cargo Type">
+    <input id="weight" placeholder="Weight">
+    <input id="value" placeholder="Declared Value">
+    <button id="createShipmentBtn">
+      <i class="fas fa-box" style="margin-right:8px"></i>Create Shipment
+    </button>
+    <div id="createResult" class="result-box"></div>
+  </section>
 
-    <button id="logoutBtn">Logout</button>
-    
-    <script src="script.js"></script>
+  <section>
+    <h2><i class="fas fa-edit" style="margin-right:8px;font-size:0.9rem"></i>Update Shipment</h2>
+    <input id="trackId" placeholder="Tracking ID (e.g. GS-12345-67890)">
+    <input id="status" placeholder="Status (e.g. In Transit, Delivered)">
+    <input id="event" placeholder="Event description">
+    <input id="location" placeholder="Current Location">
+    <button id="updateShipmentBtn">
+      <i class="fas fa-sync" style="margin-right:8px"></i>Update Shipment
+    </button>
+    <div id="updateResult" class="result-box"></div>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>

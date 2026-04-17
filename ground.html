@@ -1,54 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ground Freight | GlobalSecure</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ground Freight | GlobalSecure Logistics</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .service-hero {
+      background:
+        linear-gradient(to right, rgba(5,14,31,0.85) 40%, rgba(5,14,31,0.4) 100%),
+        url('images/ground3.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
 </head>
-
 <body>
 
+<!-- NAV -->
+<header>
+  <div class="header-container">
+    <a href="index.html" class="logo">
+      <i class="fas fa-shield-alt"></i>
+      <span>GlobalSecure</span>
+    </a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+    <nav>
+      <ul id="navMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#services" class="active">Services</a></li>
+        <li><a href="index.html#tracking">Tracking</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="index.html#contact" class="cta-button">Get Quote</a>
+  </div>
+</header>
+
 <!-- HERO -->
-<div class="service-hero">
+<div class="service-hero" style="padding-top:140px">
+  <div class="section-eyebrow" style="margin-bottom:16px">Road Logistics</div>
   <h1>Ground Freight</h1>
-  <p>Reliable logistics across every mile</p>
+  <p>Reliable logistics across every mile — heavy loads, long distances, on time.</p>
 </div>
 
 <!-- CONTENT -->
-<div class="service-page">
+<div class="service-page fade-in">
 
-  <h2>What We Offer</h2>
+  <a href="index.html" class="back-btn">← Back to Home</a>
+
+  <div class="section-eyebrow" style="justify-content:center;margin-bottom:14px">What We Offer</div>
+  <h2>Ground Freight Services</h2>
 
   <p>
     Our ground freight services provide secure and efficient transportation
     for heavy, oversized, and long-distance cargo across multiple regions.
+    We handle everything from oil equipment to out-of-gauge loads.
   </p>
 
-  <img src="images/ground1.jpg" alt="Ground Freight">
+  <img src="images/ground1.jpg" alt="Ground Freight Operations">
 
   <ul>
-    <li>Transportation of oil equipment</li>
+    <li>Transportation of oil and industrial equipment</li>
     <li>Out-of-gauge cargo handling</li>
     <li>Door-to-door delivery services</li>
+    <li>Cross-border customs facilitation</li>
+    <li>Real-time GPS tracking on all loads</li>
   </ul>
-
-  <a href="index.html" class="back-btn">← Back to Home</a>
 
   <!-- QUOTE FORM -->
   <div class="quote-section">
     <h2>Request a Quote</h2>
-
     <form>
       <input type="text" placeholder="Full Name" required>
       <input type="email" placeholder="Email Address" required>
       <input type="text" placeholder="Company (Optional)">
-      <textarea placeholder="How can we help you?" required></textarea>
-      <button type="submit">Send Message</button>
+      <textarea placeholder="Describe your freight requirements..." required></textarea>
+      <button type="submit">Send Request</button>
     </form>
   </div>
 
 </div>
 
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h4>GlobalSecure Logistics</h4>
+        <p>Premium international shipping and logistics for high-value cargo.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="air.html">Air Freight</a></li>
+          <li><a href="shipping.html">Ocean Freight</a></li>
+          <li><a href="ground.html">Ground Transport</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <ul>
+          <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+          <li><i class="fas fa-envelope"></i> info@globalsecurelogistics.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2024 GlobalSecure Logistics. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("mobileMenuBtn");
+const navMenu = document.getElementById("navMenu");
+if (menuBtn) menuBtn.addEventListener("click", () => navMenu.classList.toggle("show"));
+
+document.querySelectorAll(".fade-in").forEach(el => {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("show"); });
+  });
+  obs.observe(el);
+});
+</script>
 </body>
 </html>
