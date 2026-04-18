@@ -5,44 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Panel | GlobalSecure Logistics</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="admin-body">
 
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:40px;padding-bottom:20px;border-bottom:1px solid var(--border)">
+  <div class="admin-topbar">
     <div style="display:flex;align-items:center;gap:12px">
-      <i class="fas fa-shield-alt" style="color:var(--cyan);font-size:1.4rem"></i>
-      <h1 style="margin:0;border:none;padding:0;font-size:1.6rem">Admin Panel</h1>
+      <i class="fas fa-shield-alt" style="color:var(--forest-mid);font-size:1.3rem"></i>
+      <h1>Admin Panel</h1>
     </div>
-    <button id="logoutBtn">
-      <i class="fas fa-sign-out-alt" style="margin-right:6px"></i>Logout
-    </button>
+    <button id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
   </div>
 
   <section>
-    <h2><i class="fas fa-plus-circle" style="margin-right:8px;font-size:0.9rem"></i>Create Shipment</h2>
-    <input id="origin" placeholder="Origin">
-    <input id="destination" placeholder="Destination">
-    <input id="delivery" placeholder="Delivery Date">
-    <input id="cargo" placeholder="Cargo Type">
-    <input id="weight" placeholder="Weight">
-    <input id="value" placeholder="Declared Value">
-    <button id="createShipmentBtn">
-      <i class="fas fa-box" style="margin-right:8px"></i>Create Shipment
-    </button>
+    <h2><i class="fas fa-plus-circle" style="margin-right:8px;font-size:1rem"></i>Create Shipment</h2>
+    <input id="origin" placeholder="Origin (e.g. New York, USA)">
+    <input id="destination" placeholder="Destination (e.g. Lagos, Nigeria)">
+    <input id="delivery" placeholder="Expected Delivery Date">
+    <input id="cargo" placeholder="Cargo Description">
+    <input id="weight" placeholder="Weight (e.g. 450 kg)">
+    <input id="value" placeholder="Declared Value (e.g. $12,000)">
+    <button id="createShipmentBtn"><i class="fas fa-box"></i> &nbsp;Create Shipment</button>
     <div id="createResult" class="result-box"></div>
   </section>
 
   <section>
-    <h2><i class="fas fa-edit" style="margin-right:8px;font-size:0.9rem"></i>Update Shipment</h2>
+    <h2><i class="fas fa-edit" style="margin-right:8px;font-size:1rem"></i>Update Shipment</h2>
     <input id="trackId" placeholder="Tracking ID (e.g. GS-12345-67890)">
-    <input id="status" placeholder="Status (e.g. In Transit, Delivered)">
-    <input id="event" placeholder="Event description">
-    <input id="location" placeholder="Current Location">
-    <button id="updateShipmentBtn">
-      <i class="fas fa-sync" style="margin-right:8px"></i>Update Shipment
-    </button>
+    <input id="status" placeholder="Status (e.g. In Transit, Delivered, Processing)">
+    <input id="event" placeholder="Event (e.g. Departed Port of Lagos)">
+    <input id="location" placeholder="Current Location (e.g. Dubai, UAE)">
+    <button id="updateShipmentBtn"><i class="fas fa-sync-alt"></i> &nbsp;Update Shipment</button>
     <div id="updateResult" class="result-box"></div>
   </section>
 

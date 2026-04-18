@@ -5,23 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GlobalSecure Logistics | Premium International Shipping</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- ── HEADER ── -->
+<!-- HEADER -->
 <header>
   <div class="header-container">
     <a href="#" class="logo">
       <i class="fas fa-shield-alt"></i>
-      <span>GlobalSecure</span>
+      GlobalSecure<span class="logo-dot">.</span>
     </a>
-
-    <button class="mobile-menu-btn" id="mobileMenuBtn">
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
       <i class="fas fa-bars"></i>
     </button>
-
     <nav>
       <ul id="navMenu">
         <li><a href="#home" class="active">Home</a></li>
@@ -31,40 +29,39 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-
     <a href="#contact" class="cta-button">Get Quote</a>
   </div>
 </header>
 
-<!-- ── HERO SLIDER ── -->
+<!-- HERO SLIDER -->
 <div class="slider" id="home">
 
   <div class="slide active">
-    <img src="images/ship2.jpg" alt="Ship">
+    <img src="images/ship2.jpg" alt="Global Shipping">
     <div class="overlay">
-      <div class="section-eyebrow">Trusted Worldwide</div>
-      <h1>Secure. Fast.<br>Global.</h1>
-      <p>We move high-value cargo across continents with precision and trust.</p>
+      <div class="slide-eyebrow">Trusted Worldwide</div>
+      <h1>Secure.<br><em>Fast.</em><br>Global.</h1>
+      <p>We move high-value cargo across continents with precision, speed, and trust.</p>
       <a href="#services" class="cta-button">Explore Services</a>
     </div>
   </div>
 
   <div class="slide">
-    <img src="images/slide.jpg" alt="Cargo Ship">
+    <img src="images/slide.jpg" alt="Ocean Freight">
     <div class="overlay">
-      <div class="section-eyebrow">Ocean Freight</div>
-      <h1>Global Shipping<br>Excellence</h1>
-      <p>Delivering cargo safely across air, land, and sea.</p>
+      <div class="slide-eyebrow">Ocean Freight</div>
+      <h1>Global Shipping<br><em>Excellence</em></h1>
+      <p>Delivering cargo safely across every ocean route, every time.</p>
       <a href="shipping.html" class="cta-button">Ocean Freight →</a>
     </div>
   </div>
 
   <div class="slide">
-    <img src="images/ground.jpg" alt="Ground">
+    <img src="images/ground.jpg" alt="Ground Transport">
     <div class="overlay">
-      <div class="section-eyebrow">Road Logistics</div>
-      <h1>Ground<br>Transport</h1>
-      <p>Reliable road logistics solutions across every mile.</p>
+      <div class="slide-eyebrow">Road Logistics</div>
+      <h1>Ground<br><em>Transport</em></h1>
+      <p>Reliable road logistics solutions across every mile, every region.</p>
       <a href="ground.html" class="cta-button">Ground Freight →</a>
     </div>
   </div>
@@ -72,111 +69,121 @@
   <div class="slide">
     <img src="images/slide1.jpg" alt="Air Freight">
     <div class="overlay">
-      <div class="section-eyebrow">Air Cargo</div>
-      <h1>Air Freight<br>Services</h1>
-      <p>Fast international delivery across continents.</p>
+      <div class="slide-eyebrow">Air Cargo</div>
+      <h1>Air Freight<br><em>Services</em></h1>
+      <p>Time-critical international delivery — continents apart, hours away.</p>
       <a href="air.html" class="cta-button">Air Freight →</a>
     </div>
   </div>
 
   <div class="slide">
-    <img src="images/slide2.jpg" alt="Logistics">
+    <img src="images/slide2.jpg" alt="Logistics Partner">
     <div class="overlay">
-      <div class="section-eyebrow">Premium Partner</div>
-      <h1>Trusted Logistics<br>Partner</h1>
-      <p>Handling sensitive and high-value shipments worldwide.</p>
+      <div class="slide-eyebrow">Premium Partner</div>
+      <h1>Trusted Logistics<br><em>Partner</em></h1>
+      <p>Handling sensitive and high-value shipments worldwide since 2008.</p>
       <a href="#contact" class="cta-button">Get a Quote →</a>
     </div>
   </div>
 
-  <!-- ARROWS -->
-  <button class="next">&#10094;</button>
-  <button class="prev">&#10095;</button>
-
-  <!-- DOTS -->
+  <button class="next" aria-label="Previous slide">&#10094;</button>
+  <button class="prev" aria-label="Next slide">&#10095;</button>
   <div class="dots"></div>
-
 </div>
 
-<!-- ── TRACKING WIDGET ── -->
-<div class="container" style="max-width:1280px;margin:0 auto;padding:0 24px">
+<!-- TRACKING WIDGET -->
+<div style="padding:0 24px">
   <div class="tracking-widget" id="tracking">
     <h2>Track Your Shipment</h2>
+    <p class="track-sub">Real-time visibility across all your GlobalSecure shipments</p>
     <div class="tracking-input-group">
-      <input type="text" class="tracking-input" id="trackingInput" placeholder="Enter tracking number (e.g., GS-12345-67890)">
-      <button class="cta-button" id="trackButton">Track Shipment</button>
+      <input type="text" class="tracking-input" id="trackingInput" placeholder="Enter tracking number — e.g. GS-12345-67890">
+      <button class="cta-button" id="trackButton">
+        <i class="fas fa-search"></i> Track
+      </button>
     </div>
     <div class="tracking-container" id="trackingResult">
       <div class="tracking-header">
         <h3>Enter a tracking number above to view shipment details</h3>
       </div>
       <div class="tracking-body">
-        <p style="text-align:center;color:var(--slate);font-size:0.9rem;padding:10px 0"></p>
+        <p style="text-align:center;color:var(--text-muted);font-size:0.88rem;padding:8px 0"></p>
       </div>
     </div>
   </div>
 </div>
 
 <!-- DIVIDER -->
-<div class="glow-line" style="margin:60px 0 0"></div>
+<div class="section-divider" style="margin-top:72px"></div>
 
-<!-- ── SERVICES SECTION ── -->
+<!-- SERVICES -->
 <section id="services">
-  <div style="text-align:center;padding:80px 20px 0">
-    <div class="section-eyebrow" style="justify-content:center">What We Do</div>
-    <h2 style="font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,2.8rem);color:#fff;letter-spacing:-0.03em;margin-bottom:14px">
-      End-to-End Logistics Solutions
-    </h2>
-    <p style="color:var(--slate);font-size:1rem;max-width:520px;margin:0 auto;font-weight:300">
-      Three modes, one promise — your cargo arrives on time, every time.
-    </p>
+  <div class="services-intro fade-in">
+    <div class="section-eyebrow">What We Do</div>
+    <h2>End-to-End Logistics Solutions</h2>
+    <p>Three modes of transport, one seamless promise — your cargo arrives on time, every time.</p>
   </div>
 
   <div class="services">
-    <a href="ground.html" class="service-card">
-      <img src="images/ground3.jpg" alt="Ground Freight">
+    <a href="ground.html" class="service-card fade-in">
+      <div class="service-card-img-wrap">
+        <img src="images/ground3.jpg" alt="Ground Freight">
+        <div class="service-card-badge"><i class="fas fa-truck"></i> Road</div>
+      </div>
       <div class="service-content">
         <h3>Ground Freight</h3>
-        <p>Reliable road transportation for heavy and bulk cargo across all regions.</p>
+        <p>Reliable road transportation for heavy, bulk, and oversized cargo across all regions.</p>
+        <div class="service-arrow">Explore Service <i class="fas fa-arrow-right"></i></div>
       </div>
     </a>
-    <a href="shipping.html" class="service-card">
-      <img src="images/ship1.jpg" alt="Shipping">
+
+    <a href="shipping.html" class="service-card fade-in fade-in-delay">
+      <div class="service-card-img-wrap">
+        <img src="images/ship1.jpg" alt="Ocean Shipping">
+        <div class="service-card-badge"><i class="fas fa-ship"></i> Ocean</div>
+      </div>
       <div class="service-content">
         <h3>Ocean Shipping</h3>
-        <p>Global ocean freight and full port logistics services, any volume.</p>
+        <p>Global ocean freight, port logistics, and vessel services for any cargo volume.</p>
+        <div class="service-arrow">Explore Service <i class="fas fa-arrow-right"></i></div>
       </div>
     </a>
-    <a href="air.html" class="service-card">
-      <img src="images/air1.jpg" alt="Air Freight">
+
+    <a href="air.html" class="service-card fade-in fade-in-delay">
+      <div class="service-card-img-wrap">
+        <img src="images/air1.jpg" alt="Air Freight">
+        <div class="service-card-badge"><i class="fas fa-plane"></i> Air</div>
+      </div>
       <div class="service-content">
         <h3>Air Freight</h3>
-        <p>Time-critical international delivery across continents in hours.</p>
+        <p>Time-critical international delivery across continents in hours, not days.</p>
+        <div class="service-arrow">Explore Service <i class="fas fa-arrow-right"></i></div>
       </div>
     </a>
   </div>
 </section>
 
-<!-- DIVIDER -->
-<div class="glow-line"></div>
+<div class="section-divider"></div>
 
-<!-- ── ABOUT SECTION ── -->
+<!-- ABOUT -->
 <section id="about">
-  <div class="container" style="max-width:1200px;margin:0 auto">
-    <div class="section-title">
-      <div class="section-eyebrow" style="justify-content:center">Who We Are</div>
+  <div class="container">
+    <div class="section-title fade-in">
+      <div class="section-eyebrow">Who We Are</div>
       <h2>About GlobalSecure Logistics</h2>
-      <p>Trusted by Fortune 500 companies for secure, reliable international shipping</p>
+      <p>Trusted by Fortune 500 companies for secure, reliable international shipping across 150+ countries.</p>
     </div>
 
     <div class="about-grid">
-      <div class="about-block">
+      <div class="about-block fade-in">
+        <div class="about-block-icon"><i class="fas fa-bullseye"></i></div>
         <h3>Our Mission</h3>
-        <p>To provide secure, reliable, and efficient logistics solutions for high-value shipments worldwide, combining cutting-edge technology with decades of industry expertise.</p>
+        <p>To provide secure, reliable, and efficient logistics solutions for high-value shipments worldwide — combining cutting-edge technology with decades of industry expertise and an unwavering commitment to trust.</p>
       </div>
-      <div class="about-block">
+      <div class="about-block fade-in fade-in-delay">
+        <div class="about-block-icon"><i class="fas fa-globe-americas"></i></div>
         <h3>Global Network</h3>
-        <p>With offices in 12 countries and partnerships in over 50, we offer seamless end-to-end logistics across all major trade routes.</p>
+        <p>With offices in 12 countries and partnerships in over 50, we offer seamless end-to-end logistics across all major trade routes — from the Americas to Asia, Africa to Europe.</p>
       </div>
     </div>
 
@@ -201,19 +208,18 @@
   </div>
 </section>
 
-<!-- DIVIDER -->
-<div class="glow-line"></div>
+<div class="section-divider"></div>
 
-<!-- ── CONTACT SECTION ── -->
+<!-- CONTACT -->
 <section id="contact">
-  <div class="container" style="max-width:1200px;margin:0 auto">
-    <div class="section-title">
-      <div class="section-eyebrow" style="justify-content:center">Reach Us</div>
+  <div class="container">
+    <div class="section-title fade-in">
+      <div class="section-eyebrow">Reach Us</div>
       <h2>Contact Us</h2>
-      <p>Get in touch for a custom quote or to learn more about our services</p>
+      <p>Get in touch for a custom quote or to learn more about our logistics services.</p>
     </div>
 
-    <div class="contact-form">
+    <div class="contact-form fade-in">
       <form id="contactForm">
         <div class="form-group">
           <label for="name">Full Name</label>
@@ -231,31 +237,30 @@
           <label for="message">How can we help you?</label>
           <textarea id="message" class="form-control" placeholder="Describe your shipment needs..." required></textarea>
         </div>
-        <button type="submit" class="cta-button" style="width:100%;justify-content:center;padding:16px;border-radius:10px;font-size:1rem">
-          Send Message
+        <button type="submit" class="cta-button" style="width:100%;justify-content:center;padding:15px;border-radius:7px;font-size:0.95rem">
+          Send Message <i class="fas fa-arrow-right"></i>
         </button>
       </form>
     </div>
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-content">
       <div class="footer-column">
-        <h4>GlobalSecure Logistics</h4>
-        <p>Premium international shipping and logistics for high-value cargo. Trusted across 150+ countries.</p>
+        <div class="footer-logo"><i class="fas fa-shield-alt"></i> GlobalSecure</div>
+        <p>Premium international shipping and logistics for high-value cargo. Trusted across 150+ countries since 2008.</p>
         <div class="social-icons">
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
-
       <div class="footer-column">
-        <h4>Quick Links</h4>
+        <h4>Navigation</h4>
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#services">Services</a></li>
@@ -264,7 +269,6 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
-
       <div class="footer-column">
         <h4>Services</h4>
         <ul>
@@ -275,35 +279,33 @@
           <li><a href="#contact">Cargo Insurance</a></li>
         </ul>
       </div>
-
       <div class="footer-column">
         <h4>Contact Info</h4>
-        <ul>
-          <li>
-            <i class="fas fa-map-marker-alt"></i>
-            123 Logistics Plaza, New York, NY 10001
-          </li>
-          <li>
-            <i class="fas fa-phone"></i>
-            +1 (555) 123-4567
-          </li>
-          <li>
-            <i class="fas fa-envelope"></i>
-            info@globalsecurelogistics.com
-          </li>
-        </ul>
+        <div class="footer-contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>123 Logistics Plaza,<br>New York, NY 10001</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-phone"></i>
+          <span>+1 (555) 123-4567</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>info@globalsecurelogistics.com</span>
+        </div>
       </div>
     </div>
-
     <div class="copyright">
       <p>&copy; 2024 GlobalSecure Logistics. All rights reserved.</p>
+      <div class="copyright-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
     </div>
   </div>
 </footer>
 
 <script src="script.js"></script>
-
-<!-- Tawk.to -->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
@@ -315,6 +317,5 @@ s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
-
 </body>
 </html>

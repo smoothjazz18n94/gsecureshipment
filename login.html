@@ -5,31 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Login | GlobalSecure Logistics</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
   <section class="login-section">
-    <div style="text-align:center;margin-bottom:40px">
-      <a href="index.html" style="display:inline-flex;align-items:center;gap:10px;font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:#fff;text-decoration:none;margin-bottom:28px">
-        <i class="fas fa-shield-alt" style="color:var(--cyan)"></i>
-        GlobalSecure
+    <div class="login-card">
+      <div class="login-logo">
+        <i class="fas fa-shield-alt"></i> GlobalSecure
+      </div>
+      <div class="login-sub">Secure admin access — authorized personnel only</div>
+      <input type="text" id="username" placeholder="Username" autocomplete="username">
+      <input type="password" id="password" placeholder="Password" autocomplete="current-password">
+      <button id="loginBtn">
+        <i class="fas fa-lock"></i> &nbsp;Sign In
+      </button>
+      <div id="loginResult"></div>
+      <a href="index.html" style="display:inline-block;margin-top:20px;color:var(--text-muted);font-size:0.82rem;transition:color 0.2s" onmouseover="this.style.color='var(--forest)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Return to Website
       </a>
-      <h2>Admin Login</h2>
-      <p style="color:var(--slate);font-size:0.9rem;margin-top:8px">Secure access for authorized personnel only</p>
     </div>
-
-    <input type="text" id="username" placeholder="Username" autocomplete="username">
-    <input type="password" id="password" placeholder="Password" autocomplete="current-password">
-    <button id="loginBtn">
-      <i class="fas fa-lock" style="margin-right:8px"></i>Login
-    </button>
-    <div id="loginResult"></div>
-
-    <a href="index.html" style="margin-top:24px;color:var(--slate);font-size:0.85rem;display:inline-block;transition:color 0.2s" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--slate)'">
-      ← Back to Website
-    </a>
   </section>
 
   <script>
@@ -37,24 +32,20 @@
       const username = document.getElementById("username").value.trim();
       const password = document.getElementById("password").value.trim();
       const result = document.getElementById("loginResult");
-
       if (!username || !password) {
-        result.textContent = "Enter both username and password";
+        result.textContent = "Please enter both username and password.";
         result.style.color = "var(--error)";
         return;
       }
-
       try {
         const res = await fetch("/admin/login", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ username, password })
         });
-
         const data = await res.json();
-
         if (data.success) {
-          result.style.color = "var(--success)";
+          result.style.color = "var(--forest-mid)";
           result.textContent = data.message;
           setTimeout(() => window.location.href = "/admin.html", 500);
         } else {
@@ -63,9 +54,13 @@
         }
       } catch (err) {
         result.style.color = "var(--error)";
-        result.textContent = "Server error";
+        result.textContent = "Server error. Please try again.";
         console.error(err);
       }
+    });
+    // Allow enter key
+    document.getElementById("password").addEventListener("keydown", e => {
+      if (e.key === "Enter") document.getElementById("loginBtn").click();
     });
   </script>
 </body>
