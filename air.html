@@ -10,7 +10,6 @@
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="header-container">
     <a href="index.html" class="logo">
@@ -33,17 +32,17 @@
   </div>
 </header>
 
-<!-- HERO — Air / Sky specific -->
+<!-- HERO -->
 <div class="service-hero hero-air">
   <div class="service-hero-content">
     <div class="slide-eyebrow">Air Cargo</div>
-    <h1>Air<br>Freight</h1>
+    <h1>Air Freight</h1>
     <p>Time-critical international delivery — across continents in hours, not days.</p>
     <a href="#quote" class="cta-button"><i class="fas fa-plane-departure"></i> Request a Quote</a>
   </div>
 </div>
 
-<!-- STRIP STATS -->
+<!-- STAT STRIP -->
 <div class="service-strip">
   <div class="strip-item">
     <div class="strip-icon"><i class="fas fa-bolt"></i></div>
@@ -70,17 +69,11 @@
 
 <!-- CONTENT -->
 <div class="service-page">
-
   <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
 
-  <div class="section-eyebrow" style="justify-content:center">What We Offer</div>
+  <div class="section-eyebrow">What We Offer</div>
   <h2>Air Freight Services</h2>
-
-  <p>
-    Our air freight services ensure fast and secure delivery of goods across international
-    destinations. Whether urgent documents or high-value cargo, we guarantee speed
-    without compromise on safety or compliance.
-  </p>
+  <p>Our air freight services ensure fast and secure delivery of goods across international destinations. Whether urgent documents or high-value cargo, we guarantee speed without compromise on safety or compliance.</p>
 
   <img class="main-image fade-in" src="images/pack.jpg" alt="Air Freight Operations">
 
@@ -129,7 +122,6 @@
     </div>
   </div>
 
-  <!-- QUOTE FORM -->
   <div class="quote-section" id="quote">
     <h2>Request a Quote</h2>
     <p class="quote-sub">Tell us about your air shipment — we'll respond within 2 hours</p>
@@ -143,7 +135,6 @@
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-content">
@@ -170,9 +161,7 @@
         <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>info@globalsecurelogistics.com</span></div>
       </div>
     </div>
-    <div class="copyright">
-      <p>&copy; 2024 GlobalSecure Logistics. All rights reserved.</p>
-    </div>
+    <div class="copyright"><p>&copy; 2024 GlobalSecure Logistics. All rights reserved.</p></div>
   </div>
 </footer>
 
@@ -182,7 +171,7 @@ const navMenu = document.getElementById("navMenu");
 if (menuBtn) menuBtn.addEventListener("click", () => navMenu.classList.toggle("show"));
 document.querySelectorAll(".fade-in").forEach(el => {
   new IntersectionObserver((entries, obs) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("show"); obs.unobserve(e.target); } });
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("show"); obs.unobserve(e.target); }});
   }, { threshold: 0.1 }).observe(el);
 });
 </script>

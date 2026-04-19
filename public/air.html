@@ -1,61 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Air Freight | GlobalSecure</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Air Freight | GlobalSecure Logistics</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
+<header>
+  <div class="header-container">
+    <a href="index.html" class="logo">
+      <i class="fas fa-shield-alt"></i>
+      GlobalSecure<span class="logo-dot">.</span>
+    </a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+      <i class="fas fa-bars"></i>
+    </button>
+    <nav>
+      <ul id="navMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#services" class="active">Services</a></li>
+        <li><a href="index.html#tracking">Tracking</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="index.html#contact" class="cta-button">Get Quote</a>
+  </div>
+</header>
+
 <!-- HERO -->
-<div class="service-hero">
-  <h1>Air Freight</h1>
-  <p>Reliable logistics across every mile</p>
+<div class="service-hero hero-air">
+  <div class="service-hero-content">
+    <div class="slide-eyebrow">Air Cargo</div>
+    <h1>Air Freight</h1>
+    <p>Time-critical international delivery — across continents in hours, not days.</p>
+    <a href="#quote" class="cta-button"><i class="fas fa-plane-departure"></i> Request a Quote</a>
+  </div>
+</div>
+
+<!-- STAT STRIP -->
+<div class="service-strip">
+  <div class="strip-item">
+    <div class="strip-icon"><i class="fas fa-bolt"></i></div>
+    <div>
+      <div class="strip-label">Speed</div>
+      <div class="strip-value">Same-Day Available</div>
+    </div>
+  </div>
+  <div class="strip-item">
+    <div class="strip-icon"><i class="fas fa-globe"></i></div>
+    <div>
+      <div class="strip-label">Network</div>
+      <div class="strip-value">150+ Destinations</div>
+    </div>
+  </div>
+  <div class="strip-item">
+    <div class="strip-icon"><i class="fas fa-lock"></i></div>
+    <div>
+      <div class="strip-label">Security</div>
+      <div class="strip-value">Fully Secured Cargo</div>
+    </div>
+  </div>
 </div>
 
 <!-- CONTENT -->
-  <section class="service-banner">
-  <div class="banner-content">
-    
-    
-  </div>
-</section>
-
 <div class="service-page">
+  <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
 
-  <h2>What We Offer</h2>
+  <div class="section-eyebrow">What We Offer</div>
+  <h2>Air Freight Services</h2>
+  <p>Our air freight services ensure fast and secure delivery of goods across international destinations. Whether urgent documents or high-value cargo, we guarantee speed without compromise on safety or compliance.</p>
 
-  <p>
-   
-   Our air freight services ensure fast and secure delivery of goods across international destinations
-  </p>
+  <img class="main-image fade-in" src="images/pack.jpg" alt="Air Freight Operations">
 
-  <img src="images/pack.jpg" alt="Ground Freight">
+  <div class="service-features fade-in">
+    <div class="feature-item">
+      <div class="feature-item-icon"><i class="fas fa-exchange-alt"></i></div>
+      <div class="feature-item-text">
+        <h4>Import & Export Forwarding</h4>
+        <p>Full-service air forwarding for both inbound and outbound international shipments.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-item-icon"><i class="fas fa-passport"></i></div>
+      <div class="feature-item-text">
+        <h4>Airport Customs Clearance</h4>
+        <p>Fast, accurate customs processing at all major international airports worldwide.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-item-icon"><i class="fas fa-box-open"></i></div>
+      <div class="feature-item-text">
+        <h4>Special Cargo Handling</h4>
+        <p>Certified handling for dangerous goods, pharmaceuticals, and high-value items.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-item-icon"><i class="fas fa-fighter-jet"></i></div>
+      <div class="feature-item-text">
+        <h4>Next-Flight-Out Emergency</h4>
+        <p>Critical shipments booked on the very next available flight to your destination.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-item-icon"><i class="fas fa-warehouse"></i></div>
+      <div class="feature-item-text">
+        <h4>Airport-to-Door Delivery</h4>
+        <p>Seamless last-mile delivery from arrival airport directly to your premises.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-item-icon"><i class="fas fa-temperature-low"></i></div>
+      <div class="feature-item-text">
+        <h4>Cold Chain Air Freight</h4>
+        <p>Temperature-controlled solutions for perishables and pharmaceutical cargo.</p>
+      </div>
+    </div>
+  </div>
 
-  <ul>
-    <li>Import & export forwarding</li>
-    <li>Airport customs clearance</li>
-    <li>Special cargo handling</li>
-  </ul>
-
-  <a href="index.html" class="back-btn">← Back to Home</a>
-
-  <!-- QUOTE FORM -->
-  <div class="quote-section">
+  <div class="quote-section" id="quote">
     <h2>Request a Quote</h2>
-
+    <p class="quote-sub">Tell us about your air shipment — we'll respond within 2 hours</p>
     <form>
       <input type="text" placeholder="Full Name" required>
       <input type="email" placeholder="Email Address" required>
       <input type="text" placeholder="Company (Optional)">
-      <textarea placeholder="How can we help you?" required></textarea>
-      <button type="submit">Send Message</button>
+      <textarea placeholder="Describe your air freight needs — cargo type, weight, origin airport, destination airport..." required></textarea>
+      <button type="submit"><i class="fas fa-paper-plane"></i> &nbsp;Send Request</button>
     </form>
   </div>
-
 </div>
 
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-column">
+        <div class="footer-logo"><i class="fas fa-shield-alt"></i> GlobalSecure</div>
+        <p>Premium international logistics for high-value cargo across every mode of transport.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="air.html">Air Freight</a></li>
+          <li><a href="shipping.html">Ocean Freight</a></li>
+          <li><a href="ground.html">Ground Transport</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <div class="footer-contact-item"><i class="fas fa-phone"></i><span>+1 (555) 123-4567</span></div>
+        <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>info@globalsecurelogistics.com</span></div>
+      </div>
+    </div>
+    <div class="copyright"><p>&copy; 2024 GlobalSecure Logistics. All rights reserved.</p></div>
+  </div>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("mobileMenuBtn");
+const navMenu = document.getElementById("navMenu");
+if (menuBtn) menuBtn.addEventListener("click", () => navMenu.classList.toggle("show"));
+document.querySelectorAll(".fade-in").forEach(el => {
+  new IntersectionObserver((entries, obs) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("show"); obs.unobserve(e.target); }});
+  }, { threshold: 0.1 }).observe(el);
+});
+</script>
 </body>
 </html>
